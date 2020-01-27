@@ -11,7 +11,7 @@ export default () =>
   <thead className='border-bottom'>
     <tr>
      <th>Date</th>
-                                    <th>Doctor</th>
+      <th>Doctor</th>
                                     <th>Status</th> 
                                     <th>Message</th>
                                     <th>Action</th>

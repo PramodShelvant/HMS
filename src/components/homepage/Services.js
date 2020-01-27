@@ -40,7 +40,7 @@ export default ()=>
     <div className="col-sm-12 col-md-6 col-lg-4 pb-5" >
        <div className="card border-0" style={{maxWidth:18+'rem'}}>
          <div className="card-body text-center">
-           <img src={item.icon} className="img-thumbnail mb-2" style={{height:10.25+'rem',width:10.25+'rem',borderRadius:50+'%'}}/>   
+           <img src={item.icon} className="img-thumbnail mb-2" style={{height:10.25+'rem',width:10.25+'rem',borderRadius:50+'%'}} alt='no img'/>   
             <div className=" p-2 "><b>{item.name}</b></div>
             <div className="text-justify p-3">
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy 

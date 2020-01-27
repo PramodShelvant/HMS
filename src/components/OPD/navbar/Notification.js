@@ -1,14 +1,14 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom'
 const Notification = () => {
   return (
     <>
-       <a className="nav-link" data-toggle="dropdown" href="#">
+       <Link className="nav-Link m-0" data-toggle="dropdown" href="#">
         <i className="far fa-comments"></i>
         <span className="badge badge-danger navbar-badge">3</span>
-      </a>
+      </Link>
       <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-        <a href="#" className="dropdown-item">
+        <Link href="#" className="dropdown-item">
          
           <div className="media">
             <img src="dist/img/user1-128x128.jpg" alt="User Avatar" className="img-size-50 mr-3 img-circle"/>
@@ -22,9 +22,9 @@ const Notification = () => {
             </div>
           </div>
           
-        </a>
+        </Link>
         <div className="dropdown-divider"></div>
-        <a href="#" className="dropdown-item">
+        <Link href="#" className="dropdown-item">
           
           <div className="media">
             <img src="dist/img/user8-128x128.jpg" alt="User Avatar" className="img-size-50 img-circle mr-3"/>
@@ -38,9 +38,9 @@ const Notification = () => {
             </div>
           </div>
           
-        </a>
+        </Link>
         <div className="dropdown-divider"></div>
-        <a href="#" className="dropdown-item">
+        <Link href="#" className="dropdown-item">
           
           <div className="media">
             <img src="dist/img/user3-128x128.jpg" alt="User Avatar" className="img-size-50 img-circle mr-3"/>
@@ -54,9 +54,9 @@ const Notification = () => {
             </div>
           </div>
           
-        </a>
+        </Link>
         <div className="dropdown-divider"></div>
-        <a href="#" className="dropdown-item dropdown-footer">See All Messages</a>
+        <Link href="#" className="dropdown-item dropdown-footer">See All Messages</Link>
       </div>
 
     </>

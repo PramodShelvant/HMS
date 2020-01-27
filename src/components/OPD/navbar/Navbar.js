@@ -6,7 +6,6 @@ const Navbar = () => {
   return (
     <nav className="main-header navbar navbar-expand navbar-white navbar-light">
       <ToggleButton />
-    
       <NavList/>
     </nav>
   );

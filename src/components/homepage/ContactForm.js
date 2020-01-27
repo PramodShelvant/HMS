@@ -35,7 +35,7 @@ export default () =>
   </div>
   <div className="form-group">
     <label for="Message">Your Message</label>
-    <textarea className="password" className="form-control" id="Message" rows="4" placeholder="Your message" />
+    <textarea className="password"  id="Message" rows="4" placeholder="Your message" />
   </div>
   <button type="submit" className="btn btn-primary form-control">Contact Us</button>
 

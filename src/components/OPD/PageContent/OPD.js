@@ -6,7 +6,7 @@ export const OPD=
     gender:"male",
     phone:9876543210,
     consultant:"dr.thapa",
-    lastvisit:2
+    lastvisit:2,
     totalvisit:4
 },
 {
@@ -16,7 +16,7 @@ export const OPD=
     gender:"male",
     phone:9876543210,
     consultant:"dr.thapa",
-    lastvisit:2
+    lastvisit:2,
     totalvisit:4
 },
 {
@@ -26,7 +26,7 @@ export const OPD=
     gender:"male",
     phone:9876543210,
     consultant:"dr.thapa",
-    lastvisit:2
+    lastvisit:2,
     totalvisit:4
 },
 {
@@ -36,6 +36,6 @@ export const OPD=
     gender:"male",
     phone:9876543210,
     consultant:"dr.thapa",
-    lastvisit:2
+    lastvisit:2,
     totalvisit:4
 }]

@@ -61,11 +61,11 @@ export default () =>
    <div className="col-sm-12 col-md-6 col-lg-4  pb-5" >
        <div className="card border-0  " style={{maxWidth:18+'rem'}}>
          <div className="card-body text-center ">
-           <img src={item.Profileimg} className="img-thumbnail mb-2" style={{height:6.25+'rem',width:6.25+'rem',borderRadius:50+'%'}}/>
+           <img src={item.Profileimg} className="img-thumbnail mb-2" style={{height:6.25+'rem',width:6.25+'rem',borderRadius:50+'%'}} alt='no img'/>
             <div className="h5 text-danger mb-1" style={{fontSize:1.5+'rem'}}>{item.name}</div>
             <span className="d-block mb-1 " style={{fontSize:1.25+'rem'}}>{item.email}</span>
             <span className="d-block mb-1 " style={{fontSize:1+'rem'}}>{item.mobno}</span>
-            <div className="p-2 bg-primary mt-3 text-white font-weight-bold" ><img className="img-fluid mr-2" src={item.specializationimg} style={{height:30+'px',width:30+'px',borderRadius:50+'%'}}/>{item.specialization}</div>
+            <div className="p-2 bg-primary mt-3 text-white font-weight-bold" ><img className="img-fluid mr-2" src={item.specializationimg} style={{height:30+'px',width:30+'px',borderRadius:50+'%'}} alt='no img'/>{item.specialization}</div>
          </div>  
        </div>
     </div>

@@ -1,9 +1,351 @@
 {
-    "todo":[
+    "opdDetails":
+    [
         {
-            "text":"abcd",
-            "completed":"false",
-            "id": 2
-        }
-    ]
+        "name":"abc",
+        "patientid":"123",
+        "guardianname":"xyz",
+        "gender":"male",
+        "phone":9876543210,
+        "consultant":"dr.thapa",
+        "lastvisit":2,
+        "totalvisit":4
+        },
+        {
+        "name":"abc",
+        "patientid":"123",
+        "guardianname":"xyz",
+        "gender":"male",
+        "phone":9876543210,
+        "consultant":"dr.thapa",
+        "lastvisit":2,
+        "totalvisit":4
+         },
+         {
+        "name":"abc",
+        "patientid":"123",
+        "guardianname":"xyz",
+        "gender":"male",
+        "phone":9876543210,
+        "consultant":"dr.thapa",
+        "lastvisit":2,
+        "totalvisit":4
+         },
+         {
+        "name":"abc",
+        "patientid":"123",
+        "guardianname":"xyz",
+        "gender":"male",
+        "phone":9876543210,
+        "consultant":"dr.thapa",
+        "lastvisit":2,
+        "totalvisit":4
+         },
+         {
+        "name":"abc",
+        "patientid":"123",
+        "guardianname":"xyz",
+        "gender":"male",
+        "phone":9876543210,
+        "consultant":"dr.thapa",
+        "lastvisit":2,
+        "totalvisit":4
+         }
+    ],
+
+"ipdDetails":
+    [
+       {
+       "name":"Anil",
+       "patientid":"pat123",
+       "gender":"male",
+       "phone":9876543210,
+       "consultant":"dr.thapa",
+       "bed":"a",
+       "charges":20000,
+       "payment":3234,
+       "duepayment":"5647",
+       "creditlimit":"1000000"
+       },
+       {
+        "name":"Amar",
+        "patientid":"pat123",
+        "gender":"male",
+        "phone":9876543210,
+        "consultant":"dr.thapa",
+        "bed":"a",
+        "charges":20000,
+        "payment":3234,
+        "duepayment":"5647",
+        "creditlimit":"1000000"
+        },
+        {
+            "name":"Ayush",
+            "patientid":"pat123",
+            "gender":"male",
+            "phone":9876543210,
+            "consultant":"dr.thapa",
+            "bed":"a",
+            "charges":20000,
+            "payment":3234,
+            "duepayment":"5647",
+            "creditlimit":"1000000"
+            },
+            {
+                "name":"Amar",
+                "patientid":"pat123",
+                "gender":"male",
+                "phone":9876543210,
+                "consultant":"dr.thapa",
+                "bed":"a",
+                "charges":20000,
+                "payment":3234,
+                "duepayment":"5647",
+                "creditlimit":"1000000"
+                }
+],
+"pharmacyDetails":
+    [
+       {
+       "billno":"01012020",
+       "date":"12-23-3636",
+       "patientname":"Serious",
+       "patienttype":"opd",
+       "doctorname":"dr rose",
+       "total":"20000",
+       "action":"nothing"
+    },
+    {
+        "billno":"01012020",
+        "date":"12-23-3636",
+        "patientname":"Serious",
+        "patienttype":"opd",
+        "doctorname":"dr rose",
+        "total":"20000",
+        "action":"nothing"
+     },
+     {
+        "billno":"01012020",
+        "date":"12-23-3636",
+        "patientname":"Serious",
+        "patienttype":"opd",
+        "doctorname":"dr rose",
+        "total":"20000",
+        "action":"nothing"
+     }
+    
+],
+"pathologyDetails":
+[
+    {
+        "testname":"MRI",
+        "shortname":"MRI",
+        "testtype":"normal",
+        "category":"A",
+        "subcatagory":"B",
+        "method":"asdfg",
+        "reportdays":"1week",
+        "charge":"12344"
+    },
+    {
+        "testname":"Scan",
+        "shortname":"MRI",
+        "testtype":"normal",
+        "category":"A",
+        "subcatagory":"B",
+        "method":"asdfg",
+        "reportdays":"1week",
+        "charge":"12344"
+    },
+    {
+        "testname":"bloodtest",
+        "shortname":"MRI",
+        "testtype":"normal",
+        "category":"A",
+        "subcatagory":"B",
+        "method":"asdfg",
+        "reportdays":"1week",
+        "charge":"12344"
+    },
+    {
+        "testname":"wertghj",
+        "shortname":"MRI",
+        "testtype":"normal",
+        "category":"A",
+        "subcatagory":"B",
+        "method":"asdfg",
+        "reportdays":"1week",
+        "charge":"12344"
+    }
+],
+"radiologyDeatils":[
+    {
+        "testname":"qwerty",
+        "shortname":"MRI",
+        "testtype":"normal",
+        "category":"A",
+        "subcatagory":"B",
+        "reportdays":"1week",
+        "charge":"12344"
+    },
+    {
+        "testname":"qwerty",
+        "shortname":"MRI",
+        "testtype":"normal",
+        "category":"A",
+        "subcatagory":"B",
+        "reportdays":"1week",
+        "charge":"12344"
+    },
+    {
+        "testname":"qwerty",
+        "shortname":"MRI",
+        "testtype":"normal",
+        "category":"A",
+        "subcatagory":"B",
+        "reportdays":"1week",
+        "charge":"12344"
+    }
+
+],
+"operationtheatreDeatils":
+[
+    {
+        "billno":"01012021",
+        "patientname":"arun",
+        "patientid":"123",
+        "gender":"male",
+        "phone":9876543210,
+        "operationname":"apendix",
+        "operationtype":"normal",
+        "consultant":"dr.thapa",
+        "operationdate":"01-01-2020",
+        "appliedcharge":"234560"
+    },
+    {
+        "billno":"01012022",
+        "patientname":"amar",
+        "patientid":"123",
+        "gender":"male",
+        "phone":9876543210,
+        "operationname":"apendix",
+        "operationtype":"normal",
+        "consultant":"dr.thapa",
+        "operationdate":"01-01-2020",
+        "appliedcharge":"234560"
+    },
+    {
+        "billno":"01012023",
+        "patientname":"arjit",
+        "patientid":"123",
+        "gender":"male",
+        "phone":9876543210,
+        "operationname":"apendix",
+        "operationtype":"normal",
+        "consultant":"dr.thapa",
+        "operationdate":"01-01-2020",
+        "appliedcharge":"234560"
+    },
+    {
+        "billno":"01012024",
+        "patientname":"anmol",
+        "patientid":"123",
+        "gender":"male",
+        "phone":9876543210,
+        "operationname":"apendix",
+        "operationtype":"normal",
+        "consultant":"dr.thapa",
+        "operationdate":"01-01-2020",
+        "appliedcharge":"234560"
+    }
+],
+"ambulanceDetails":
+[
+    {
+        "vehicle no":1,
+        "vehicle model":"Ka-32",
+        "year mode":"2000",
+        "driver name":"Amit",
+        "driver license":"yes",
+        "driver contact":"mobile",
+        "vehicle type":"Four Wheeler"
+    },
+    {
+        "vehicle no":2,
+        "vehicle model":"Ka-33",
+        "year mode":"2001",
+        "driver name":"Anil",
+        "driver license":"yes",
+        "driver contact":"mobile",
+        "vehicle type":"Three Wheeler"
+    },
+    {
+        "vehicle no":3,
+        "vehicle model":"Ka-34",
+        "year mode":"2002",
+        "driver name":"Arun",
+        "driver license":"yes",
+        "driver contact":"mobile",
+        "vehicle type":"Four Wheeler"
+    },
+    {
+        "vehicle no":4,
+        "vehicle model":"Ka-35",
+        "year mode":"2003",
+        "driver name":"Ambrish",
+        "driver license":"yes",
+        "driver contact":"mobile",
+        "vehicle type":"two Wheeler"
+    }
+],
+"bloodBankDetails":
+[
+    {
+       "Bill No":"B11",
+       "Issue date":"05-01-2020",
+       "Recieved To":"Oliver Thomas",
+       "Blood Group":"A+",
+       "Donor Name":"Alexander",
+       "Bag No":20,
+       "Amount":500.00,
+       "Action":"Y" 
+
+    },
+    {
+        "Bill No":"B12",
+        "Issue date":"04-01-2020",
+        "Recieved To":"Oliver Thomas",
+        "Blood Group":"B+",
+        "Donor Name":"Alexander",
+        "Bag No":21,
+        "Amount":600.00,
+        "Action":"N" 
+ 
+     },
+     {
+        "Bill No":"B13",
+        "Issue date":"05-01-2020",
+        "Recieved To":"Oliver Thomas",
+        "Blood Group":"O+",
+        "Donor Name":"Alexander",
+        "Bag No":22,
+        "Amount":800.00,
+        "Action":"Y" 
+ 
+     },
+     {
+        "Bill No":"B14",
+        "Issue date":"06-01-2020",
+        "Recieved To":"Oliver Thomas",
+        "Blood Group":"A",
+        "Donor Name":"Alexander",
+        "Bag No":23,
+        "Amount":1000.00,
+        "Action":"Y" 
+ 
+     }
+]
+
+
+
 }

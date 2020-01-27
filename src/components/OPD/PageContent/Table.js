@@ -1,16 +1,19 @@
 import React,{useEffect} from 'react'
 
 export default (prop)=>{
+  console.log(prop.Datasrc);
  useEffect(()=>{ 
-  let table=window.$(document).ready(function() {
-    window.$(`#${prop.url}`).DataTable( {
-        
-        ajax:{
-            url:`http://localhost:8080/${prop.url}`,
-            dataSrc:'_embedded.opdDetails',   
-        },
-        columns:prop.col,
-      language: { search: '', searchPlaceholder: "Search here........." },
+  //  if(window.$.fn.DataTable.isDataTable("#example")){
+  //   window.$('#example').DataTable().clear().destroy();
+  //  }
+  let table=window.$(document).ready(function(){
+  window.$('#example').DataTable().destroy();
+  window.$('#example').empty();
+  window.$.fn.dataTable.ext.errMode='none';
+  window.$(`#example`).DataTable( {
+    data:prop.Datasrc,
+    columns:prop.col.map(name=>{return{data:name,title:name}}),
+      language: { search: '', searchPlaceholder: "Search here.........",zeroRecords:'' },
           initComplete: function () {
    window.$('.dataTables_filter input[type="search"]').css({'width':'300px','border':'none','border-bottom':'2px solid grey'});
     },
@@ -57,27 +60,27 @@ export default (prop)=>{
      
     
 
-    } );
-} );
-
-}
-  ,[prop.col,prop.url]
+    } )});
+} 
  );
+
   return(
 
 <>
 
-<table id={`${prop.url}`} className="table table-striped table-bordered dt-responsive nowrap" style={{width:'100%'}}>
+<table id={`example`} className={`table table-striped table-bordered dt-responsive nowrap `} style={{width:'100%'}}>
   <thead className='bg-primary text-white'>
-            <tr>
+           {<tr>
                 {prop.col.map(
                     (name)=>{
                     return <th>{name}</th>
                     }
                 )}
-            </tr>
+            </tr>}
         </thead>
-        
+        <tbody>
+            
+          </tbody>
 </table>
 
 </>

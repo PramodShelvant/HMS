@@ -1,15 +1,15 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom'
 const UserProfile = () => {
   return (
       <>
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
-            </a>
+        <Link href="#" class="nav-Link dropdown-toggle" data-toggle="dropdown">
+              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image" alt='no img'/>
+            </Link>
             <ul class="dropdown-menu dropdown-menu-right">
  
               <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
+                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" alt='no img'/>
 
                 <p>
                   Alexander Pierce - Web Developer
@@ -19,22 +19,22 @@ const UserProfile = () => {
               <li class="user-body">
                 <div class="row">
                   <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
+                    <Link href="#">Followers</Link>
                   </div>
                   <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
+                    <Link href="#">Sales</Link>
                   </div>
                   <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
+                    <Link href="#">Friends</Link>
                   </div>
                 </div>
               </li>
               <li class="d-flex justify-content-between py-2 px-1">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <Link href="#" class="btn btn-default btn-flat">Profile</Link>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <Link href="#" class="btn btn-default btn-flat">Sign out</Link>
                 </div>
               </li>
             </ul>

@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import Sidebar from './sidebar'
 import Navbar from './navbar';
-import Table from './table';
+import Table from './Table';
 export default (prop) =>{
   const [hide,setHide]=useState(0);
  

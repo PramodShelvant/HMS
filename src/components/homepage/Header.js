@@ -1,4 +1,5 @@
 import React from 'react';
+import {BrowserRouter} from 'react-router-dom'
 import BookMyAppointment from './BookMyAppointment';
 import Login from './Login';
 import Navbar from './Navbar';
@@ -11,7 +12,7 @@ import Contact from './Contact';
 import Footer from './footer';
 
 export default ()=>
-<React.Fragment>
+<BrowserRouter>
 <div class="position-fixed d-flex flex-column vw-100 bg-dark p-0 m-0 " style={{zIndex:1,minWidth:100+'vw'}}>
 {
 //   < div className='pr-5 d-flex justify-content-between bg-dark text-white p-0 ' style={{backgroundColor:'#dfdfdf'}}>
@@ -31,6 +32,7 @@ export default ()=>
 
 <Navbar />
 </div>
+
 <BookMyAppointment />
 <Login />
 <Carosal />
@@ -41,4 +43,4 @@ export default ()=>
 <Contact />
 <Footer />
 
-</React.Fragment>
+</BrowserRouter>

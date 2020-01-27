@@ -58,7 +58,7 @@ const departments= [
   
  <div class="row pl-md-5">
  {departments.map((item)=>
-  <div class="col-sm-12 col-md-6 col-lg-4 h4 m-0 p-0" style={{minWidth:300+'px'}}><img class="img-fluid m-3" src={item.icon} style={{height:50+'px',width:50+'px',borderRadius:50+'%'}}/>{item.name.toUpperCase()}</div>)}
+  <div class="col-sm-12 col-md-6 col-lg-4 h4 m-0 p-0" style={{minWidth:300+'px'}}><img class="img-fluid m-3" src={item.icon} style={{height:50+'px',width:50+'px',borderRadius:50+'%'}} alt='no img'/>{item.name.toUpperCase()}</div>)}
  </div>
  </div>
  

@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../OPD/navbar/Navbar'
-import {Patient, Receptionist, IPD, OPD} from '../OPD/Data'
+import {OPD} from '../OPD/Data'
 import PageContent from '../OPD/PageContent/PageContent'
 import Sidebar from '../OPD/sidebar/sidebar'
 

@@ -23,7 +23,7 @@ export default ()=>
   <div className="tab-pane fade show active" id="pills-about" role="tabpanel" aria-labelledby="pills-about-tab">
 <div className="row justify-content-between px-5">
 <div className=" col-sm-12 col-md-6">
-  <img src="https://www.biospectrumindia.com/uploads/articles/hospital-13551.jpg" className="img-fluid img-thumbnail" />
+  <img src="https://www.biospectrumindia.com/uploads/articles/hospital-13551.jpg" className="img-fluid img-thumbnail"  alt='no img'/>
 </div>
 <div className="col-sm-12 col-md-6 p-0 m-0 ">
   <p className="text-justify  p-0 " >
@@ -36,7 +36,7 @@ export default ()=>
   <div className="tab-pane fade" id="pills-vision" role="tabpanel" aria-labelledby="pills-vision-tab">
     <div className="row justify-content-between px-5">
 <div className=" col-sm-12 col-md-6">
-  <img src="https://www.biospectrumindia.com/uploads/articles/hospital-13551.jpg" className="img-fluid img-thumbnail" />
+  <img src="https://www.biospectrumindia.com/uploads/articles/hospital-13551.jpg" className="img-fluid img-thumbnail" alt='no img' />
 </div>
 <div className="col-sm-12 col-md-6 p-0 m-0">
   <p className="text-justify lead " >
@@ -50,7 +50,7 @@ export default ()=>
   <div className="tab-pane fade" id="pills-offer" role="tabpanel" aria-labelledby="pills-offer-tab">
      <div className="row justify-content-between px-5">
 <div className=" col-sm-12 col-md-6">
-  <img src="https://www.biospectrumindia.com/uploads/articles/hospital-13551.jpg" className="img-fluid img-thumbnail" />
+  <img src="https://www.biospectrumindia.com/uploads/articles/hospital-13551.jpg" className="img-fluid img-thumbnail" alt='no img'/>
 </div>
 <div className="col-sm-12 col-md-6 p-0 m-0">
   <p className="text-justify" >
@@ -64,7 +64,7 @@ export default ()=>
    <div className="tab-pane fade" id="pills-work" role="tabpanel" aria-labelledby="pills-work-tab">
      <div className="row justify-content-between px-5 ">
 <div className=" col-sm-12 col-md-6">
-  <img src="https://www.biospectrumindia.com/uploads/articles/hospital-13551.jpg" className="img-fluid img-thumbnail" />
+  <img src="https://www.biospectrumindia.com/uploads/articles/hospital-13551.jpg" className="img-fluid img-thumbnail" alt='no img' />
 </div>
 <div className="col-sm-12 col-md-6 p-0 m-0">
   <p className="text-justify " >
