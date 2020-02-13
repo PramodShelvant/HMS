@@ -3,7 +3,7 @@ export const Patient=[
       icon:'fa fa-user',
       name:'My Appointments',
       url:'appointment',
-      col:['patientName','appointmentNo','date','mobileNumber','gender','doctor','source','appointmentStatus'],
+      col:['appointmentNo','date','doctor','massage','appointmentStatus'],
       sidebtn:[
         {
           className:'btn btn-light ml-1 btn-sm',
@@ -15,7 +15,7 @@ export const Patient=[
       icon:'fa fa-stethoscope',
       name:'OPD',
       url:'opdoutpatient',
-      col:['name','appointmentDate','caseType','casuality','symptoms','bp','height','weight','tpa','consDoctor','standardCharge','appliedCharge','paymentMode','note'],
+      col:['opdId','appointmentDate','caseType','casuality','symptoms','consDoctor','standardCharge','appliedCharge','paymentMode','note'],
       sidebtn:[
         {
           className:'btn btn-light ml-1 btn-sm',
@@ -73,7 +73,6 @@ export const Patient=[
           type:'Link',
           col:['testname','shortname','testtype','category','subcatagory','method','reportdays','charge']
         }]
-   
      },
      {
       icon:'fa fa-cut',
@@ -86,12 +85,7 @@ export const Patient=[
           id:'#AddOTPatient',
           name:'Add Patient'
         }]
-     },
-   
-    
+     }
   ];
-  
-  
-  
     
   

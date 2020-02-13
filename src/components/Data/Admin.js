@@ -31,6 +31,7 @@ export const Admin=[
           id:'#calllog',
           name:'Call Log',
           type:'Link',
+          url:'phonecall',
           col:['name','date','phone','description','nextFollowUpDate','callDuration','callType','note'],
           sidebtn:[
             {
@@ -43,6 +44,7 @@ export const Admin=[
           className:'btn btn-light btn-sm ml-1',
           id:'#PostalRcv',
           name:'Postal Recieve',
+          url:'postalrecieve',
           type:'Link',
           col:['fromTitle','referenceNo','toTitle','date','address','attachDocument'],
           sidebtn:[
@@ -56,8 +58,9 @@ export const Admin=[
           className:'btn btn-light btn-sm ml-1',
           id:'#PostalDsp',
           name:'Postal Dispatch',
+          url:'postaldispatchlist',
           type:'Link',
-          col:['FormTitle','ReferenceNo','Totitle','Date'],
+          col:['fromTitle','referenceNo','toTitle','date','address','attachDocument'],
           sidebtn:[
             {
               className:'btn btn-light ml-1 btn-sm',
@@ -69,8 +72,9 @@ export const Admin=[
           className:'btn btn-light btn-sm ml-1',
           id:'#Complain',
           name:'Complain',
+          url:'complaintype',
           type:'Link',
-          col:['FormTitle','ReferenceNo','Totitle','Date'],
+         col:['complainBy','source','date','phone','description','actionTaken','assigned','note','attachedDocument'],
           sidebtn:[
             {
               className:'btn btn-light ml-1 btn-sm',
@@ -131,8 +135,9 @@ export const Admin=[
           id:'#Medicines',
           name:'Medicine Stock',
           type:"Link",
-          col:['Name','PatientId','Gender','Phone','Consulatant'],
-          sidebtn:[
+          url:'medician',
+          col:['medicineName','medicineCategory','medicineCompany','medicineComposition','medicineGroup','unit','minLevel','reOrderLevel','vat','packing','note','vatAc','MedicinePhoto'],
+           sidebtn:[
             {
               className:'btn btn-light ml-1 btn-sm',
               id:'#importmedicine',

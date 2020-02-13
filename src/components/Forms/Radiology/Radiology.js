@@ -1,6 +1,6 @@
 import React from 'react'
 import {useFormik} from 'formik';
-import Yup from 'yup';
+import * as  Yup from 'yup';
 import {Getdata,Postdata,PostFormdata} from '../../../Network/Server'
 export default ()=>{
     const formik = useFormik({
@@ -16,7 +16,18 @@ export default ()=>{
             standardCharge:''
         },
         onSubmit:values=>{alert(JSON.stringify(values,null,2))
-          Postdata('rediology/','POST',values).then(data=>console.log(data))}
+          Postdata('rediology/','POST',values).then(data=>console.log(data))},
+          validationSchema:Yup.object().shape({
+            testName:Yup.string().required(),
+            shortName:Yup.string().required(),
+            testType:Yup.string().required(),
+            categoryName:Yup.string().required(),
+            subCategory:Yup.string().required(),
+            reportDays:Yup.number().required(),
+            chargeCategory:Yup.string().required(),
+            code:Yup.string().required(),
+            standardCharge:Yup.string().required()
+          })
       })
 
     return(
@@ -36,16 +47,19 @@ export default ()=>{
                     <div>Test Name <small className="req text-danger">*</small>
                       <input type="text"className="form-control" onChange={(e)=>formik.setFieldValue('testName',e.target.value)}/>
                     </div>
+                    <span class="text-danger">{formik.touched.testName?formik.errors.testName:''}</span>
                   </div>
                   <div className="form-group">
                     <div>Short Name <small className="req text-danger">*</small>
                       <input type="text"className="form-control" onChange={(e)=>formik.setFieldValue('shortName',e.target.value)}/>
                      </div>
+                     <span class="text-danger">{formik.touched.shortName?formik.errors.shortName:''}</span>
                    </div>
                         <div className="form-group">
                             <div>Test Type<small className="req text-danger">*</small>
                             <input type="text"className="form-control" onChange={(e)=>formik.setFieldValue('testType',e.target.value)}/>
                             </div>
+                            <span class="text-danger">{formik.touched.testType?formik.errors.testType:''}</span>
                         </div>
                         <div className="form-group">
                             <div>Category Name <small className="req text-danger">*</small>
@@ -59,6 +73,7 @@ export default ()=>{
                           <option>ECG</option>
                         </select>                            
                         </div>
+                        <span class="text-danger">{formik.touched.categoryName?formik.errors.categoryName:''}</span>
                         </div>
                  </div>
                  <div className="d-flex justify-content-between">
@@ -67,11 +82,13 @@ export default ()=>{
                         <div>Sub Category <small className="req text-danger">*</small>
                         <input type="text"className="form-control" onChange={(e)=>formik.setFieldValue('subCategory',e.target.value)}/>
                         </div>
+                        <span class="text-danger">{formik.touched.subCategory?formik.errors.subCategory:''}</span>
                     </div>
                     <div className="form-group">
                         <div>Report Days <small className="req text-danger">*</small>
                         <input type="text"className="form-control" onChange={(e)=>formik.setFieldValue('reportDays',e.target.value)}/>
                         </div>
+                        <span class="text-danger">{formik.touched.reportDays?formik.errors.reportDays:''}</span>
                     </div>
                     <div className="form-group">
                         <div>Charge Category<small className="req text-danger">*</small>
@@ -83,6 +100,7 @@ export default ()=>{
                           <option>Molecular Diagnostics</option>
                         </select> 
                         </div>
+                        <span class="text-danger">{formik.touched.chargeCategory?formik.errors.chargeCategory:''}</span>
                     </div>
                     <div className="form-group">
                         <div>Code <small className="req text-danger">*</small>
@@ -95,12 +113,13 @@ export default ()=>{
                    </select> 
                                           
                     </div>
-                    
+                    <span class="text-danger">{formik.touched.code?formik.errors.code:''}</span>
                     </div>
                     <div className="form-group">
                         <div>Standard Charge($)<small className="req text-danger">*</small>
                         <input type="number"className="form-control" onChange={(e)=>formik.setFieldValue('standardCharge',e.target.value)}/>
                         </div>
+                        <span class="text-danger">{formik.touched.standardCharge?formik.errors.standardCharge:''}</span>
                     </div>   
              </div>
              <div className="d-flex float-right">

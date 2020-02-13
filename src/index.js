@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import Dashboard from './components/OPD/dashboard'
-import {Receptionist,Patient} from './components/OPD/Data'
 import {BrowserRouter,Route,Link,Switch } from 'react-router-dom'
 import Header from './components/homepage/Header'
 import AddVisitor from './components/Forms/FrontOffice/AddVisitor'
@@ -36,23 +35,7 @@ class App extends Component {
      <BrowserRouter>
      <Switch>
        <Route path='/registration' render={()=><Registration />}></Route>
-       <Route path='/AddPatient' render={()=><AddPatient />}></Route> 
-       <Route path='/Radiology' render={()=><Radiology />}></Route> 
-       <Route path='/Pathology' render={()=><Pathology />}></Route> 
-       <Route path='/ImportMedicine' render={()=><ImportMedicine />}></Route>
-       <Route path='/PurchaseMedicine' render={()=><PurchaseMedicine />}></Route>
-       <Route path='/AddMedicine' render={()=><AddMedicine />}></Route>
-       <Route path='/GenerateBill' render={()=><GenerateBill/>}></Route>
-       <Route path='/IPDAddpat' render={()=><IPDAddpat/>}></Route>
-       <Route path='/AddPat' render={()=><AddPat />}></Route>
-       <Route path='/AddComplain' render={()=><AddComplain />}></Route>
-       <Route path='/AddDispatch' render={()=><AddDispatch />}></Route>
-       <Route path='/AddReceive' render={()=><AddReceive />}></Route>
-       <Route path= '/CallLog' render={()=><CallLog />}></Route>
-       <Route path ='/AddVisitor'  render={()=><AddVisitor />}></Route>
-       <Route path='/receptionist' render={()=><Dashboard data={Receptionist}/>}></Route>
-       <Route path='/patient' render={()=><Dashboard data={Patient}/>}></Route>
-       <Route path='/dashboard' render={()=><Dashboard data={Receptionist}/>}></Route>
+       <Route path='/dashboard' render={()=><Dashboard />}></Route>
        <Route path='/' exact  render={()=><Header/>}>
 
         </Route>

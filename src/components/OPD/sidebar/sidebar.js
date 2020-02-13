@@ -11,7 +11,6 @@ const sidebar = (prop) => {
   backgroundRepeat: 'no-repeat'
 }} >
         <Sidebarbrand />
-        
         <Sidebaritem items={prop.items} setBreadcrum={prop.setBreadcrum} setcol={prop.setcol} seturl={prop.seturl} setsidebutton={prop.setsidebutton}/>
         </aside>
   );

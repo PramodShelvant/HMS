@@ -2,7 +2,7 @@ import React from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {useFormik} from 'formik';
-import Yup from 'yup';
+import * as  Yup from 'yup';
 import {Getdata,PostFormdata} from '../../../Network/Server'
 export default () =>{
     const formik = useFormik({
@@ -20,7 +20,20 @@ export default () =>{
 
         },
         onSubmit:values=>{alert(JSON.stringify(values,null,2))
-            PostFormdata('complaintype/','POST',values).then(data=>console.log(data))}
+            PostFormdata('complaintype/','POST',values).then(data=>console.log(data))},
+            validationSchema:Yup.object().shape({
+                complainType:Yup.string().required(),
+            source:Yup.string().required(),
+            complainBy:Yup.string().required(),
+            phone:Yup.number(10).required(),
+            date:Yup.date().required(),
+            description:Yup.string().required(),
+            actionTaken:Yup.string().required(),
+            assigned:Yup.string().required(),
+            note:Yup.string().required(),
+            //attachedDocument:null
+
+            })
      })
 return(
     <div class="modal fade" id="Complain" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -39,12 +52,13 @@ return(
                 <div className="form-row">
                 <div className="form-group col-md-6">
                     <label for="complaintype">Complain Type</label>
-                    <select id="input" className="form-control" name='complainType' {...formik.getFieldProps('complainType')}>
+                    <select id="input" className={`form-control ${(formik.touched.complainType && formik.errors.complainType)?formik.errors:''}`} name='complainType' {...formik.getFieldProps('complainType')}>
                       <option selected>Choose</option>
                       <option>Food Quality</option>
                       <option>Hospital Services</option>
                     </select>
                 </div>
+                <span className='text-danger'>{(formik.touched.complainType && formik.errors.complainType)?formik.errors.complainType:''}</span>
                 <div className="form-group col-md-6">
                     <label for="source">Source</label>
                     <select id="input" className="form-control" name='source' {...formik.getFieldProps('source')}>
@@ -53,16 +67,22 @@ return(
                         <option>From Visitors</option>
                     </select>
                 </div>
+                
+                <span className='text-danger'>{(formik.touched.source && formik.errors.source)?formik.errors.source:''}</span>
                 </div>
                 <div className="form-row">
                     <div className="form-group col-md-6">
                         <label for="complainby">Complain By</label>
                         <input type="text" className="form-control" id="complain" placeholder="" name='complainBy' {...formik.getFieldProps('complainBy')}/>
                     </div>
+                    
+                <span className='text-danger'>{(formik.touched.complainBy && formik.errors.complainBy)?formik.errors.complainBy:''}</span>
                     <div className="form-group col-md-6">
                         <label for="complainby">Phone</label>
                         <input type="Number" className="form-control" id="complain" placeholder="" name='phone' {...formik.getFieldProps('phone')}/>
                     </div>
+                    
+                <span className='text-danger'>{(formik.touched.phone && formik.errors.phone)?formik.errors.phone:''}</span>
                 </div>
                 <div className="form-row">
                     <div class="form-group col-md-6">
@@ -72,31 +92,43 @@ return(
 />
                         </div> 
                     </div>  
+                    
+                <span className='text-danger'>{(formik.touched.date && formik.errors.date)?formik.errors.date:''}</span>
                     <div className="form-group col-md-6">
                         <label for="inputCity">Description</label>
                         <textarea className="form-control bg-transparent" rows="3" placeholder="" value="" name='description' {...formik.getFieldProps('description')}>
                         </textarea>
                     </div>    
+                    
+                <span className='text-danger'>{(formik.touched.description && formik.errors.description)?formik.errors.description:''}</span>
                 </div>
                 <div className="form-row">
                     <div className="form-group col-md-6">
                         <label for="Actiontaken">Action Taken</label>
                         <input type="text" className="form-control" name='actionTaken' {...formik.getFieldProps('actionTaken')}/>
                     </div>
+                    
+                <span className='text-danger'>{(formik.touched.actionTaken && formik.errors.actionTaken)?formik.errors.actionTaken:''}</span>
                     <div className="form-group col-md-6">
                         <label for="Actiontaken">Assigned</label> 
                         <input type="text" className="form-control" name='assigned' {...formik.getFieldProps('assigned')}/>
                     </div>
+                    
+                <span className='text-danger'>{(formik.touched.assigned && formik.errors.assigned)?formik.errors.assigned:''}</span>
                 </div>
                 <div className="form-row">
                     <div className="form-group col-md-6">
                         <label for="note">Note</label>
                         <textarea className="form-control" row="2" name='note' {...formik.getFieldProps('note')}></textarea>
                     </div>
+                    
+                <span className='text-danger'>{(formik.touched.note && formik.errors.note)?formik.errors.note:''}</span>
                     <div className="form-group col-md-6">
                         <label for="choose">Attach Document</label>
                         <input type="file" class="form-group-input" id="inputGroupFile01" name='attachedDocument' onChange={(e)=>formik.setFieldValue('attachedDocument',e.target.files[0])}/>
-                    </div>   
+                    </div> 
+                    
+                <span className='text-danger'>{(formik.touched.attachedDocument && formik.errors.attachedDocument)?formik.errors.attachedDocument:''}</span>  
                 </div>
                 <button type="submit" class="btn btn-outline-primary form-control ">Save</button>
             </form>

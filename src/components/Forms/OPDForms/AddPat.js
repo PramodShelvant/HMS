@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useFormik } from 'formik';
-import Yup from 'yup';
+import * as  Yup from 'yup';
  import {Getdata,Postdata,PostFormdata} from '../../../Network/Server'
 
 
@@ -27,7 +27,24 @@ export default () =>{
         paymentMode:''
        },
        onSubmit:values=>{alert(JSON.stringify(values,null,2))
-         Postdata('opdoutpatient/','POST',values).then(data=>console.log(data))}
+         Postdata('opdoutpatient/','POST',values).then(data=>console.log(data))},
+         validationSchema:Yup.object().shape({
+            height:Yup.number().required(),
+            weight:Yup.number().required(),
+            bp:Yup.number().required(),
+            symptoms:Yup.string().required(),
+            note:Yup.string().required(),
+            appointmentDate:Yup.date().required(),
+            caseType:Yup.string().required(),
+            casuality:Yup.string().required(),
+            oldPatient:Yup.string().required(),
+            tpa:Yup.string().required(),
+            reference:Yup.string().required(),
+            consDoctor:Yup.string().required(),
+            standardCharge:Yup.string().required(),
+            appliedCharge:Yup.string().required(),
+            paymentMode:Yup.string().required()
+         })
      })
 
 
@@ -68,20 +85,24 @@ export default () =>{
                             <label for="hight">Height</label>
                             <input type="number"  className="form-control" onChange={(e)=>formik.setFieldValue('height',e.target.value)}/>
                         </div>
+                        <span className='text-danger'>{(formik.touched.height && formik.errors.height)?formik.errors.height:''}</span>
                         <div className="form-group col-md-4">
                             <label for="hight">Weight</label>
                             <input type="number"  className="form-control" onChange={(e)=>formik.setFieldValue('weight',e.target.value)} />
                         </div>
+                        <span className='text-danger'>{(formik.touched.weight && formik.errors.weight)?formik.errors.weight:''}</span>
                         <div className="form-group col-md-4 ">
                             <label for="hight">BP</label>
                             <input type="number"  className="form-control" onChange={(e)=>formik.setFieldValue('bp',e.target.value)} />
                         </div>
+                        <span className='text-danger'>{(formik.touched.bp && formik.errors.bp)?formik.errors.bp:''}</span>
                         </div>  
                      <div className="form-row ">
                         <div className="form-group col-md-12">
                             <label for="hight">Symptoms</label>
                             <input type="text"   className="form-control" onChange={(e)=>formik.setFieldValue('symptoms',e.target.value)}/>
                         </div>
+                        <span className='text-danger'>{(formik.touched.symptoms && formik.errors.symptoms)?formik.errors.symptoms:''}</span>
                         </div>  
                         <div className="form-row">
                           <div className="form-group col-md-12">
@@ -89,6 +110,7 @@ export default () =>{
                                <textarea className="form-control bg-transparent"  onChange={(e)=>formik.setFieldValue('note',e.target.value)}  >
                                </textarea>
                            </div>  
+                           <span className='text-danger'>{(formik.touched.note && formik.errors.note)?formik.errors.note:''}</span>
                            </div> 
                            </div>
 
@@ -100,11 +122,13 @@ export default () =>{
                                 <div className="w-100 ">
                                    <DatePicker className="form-control"  style={{width:'100% !important'}} selected={formik.values.appointmentDate} customInput={<input className="form-control"/>}  onChange={(data)=>formik.setFieldValue('appointmentDate',data)}/>
                                 </div> 
+                                <span className='text-danger'>{(formik.touched.appointmentDate && formik.errors.appointmentDate)?formik.errors.appointmentDate:''}</span>
                             </div>
                             <div className="form-group col-md-6">
                                  <label for="case">Case Type</label>
                                  <input type="text"  className="form-control ml-2" onChange={(e)=>formik.setFieldValue('caseType',e.target.value)}/>
                              </div>
+                             <span className='text-danger'>{(formik.touched.caseType && formik.errors.caseType)?formik.errors.caseType:''}</span>
                              <div className="form-group col-md-6">
                                  <label for="case">Casuality</label>
                                  <select id="input"  className="form-control" onChange={(e)=>formik.setFieldValue('casuality',e.target.value)}>
@@ -112,6 +136,7 @@ export default () =>{
                                  <option>No</option>
                                  </select>
                              </div>
+                             <span className='text-danger'>{(formik.touched.casuality && formik.errors.casuality)?formik.errors.casuality:''}</span>
                              <div className="form-group col-md-6">
                                  <label for="case">Old Patient</label>
                                  <select id="input"  className="form-control" onChange={(e)=>formik.setFieldValue('oldPatient',e.target.value)}>
@@ -119,6 +144,7 @@ export default () =>{
                                  <option>No</option>
                                  </select>
                              </div>
+                             <span className='text-danger'>{(formik.touched.oldPatient && formik.errors.oldPatient)?formik.errors.oldPatient:''}</span>
                              <div className="form-group col-md-6">
                                  <label for="case">TPA</label>
                                  <select id="input" className="form-control" onChange={(e)=>formik.setFieldValue('tpa',e.target.value)}>
@@ -127,10 +153,12 @@ export default () =>{
                                  <option>Star Health Insurance</option>
                                  </select>
                              </div>
+                             <span className='text-danger'>{(formik.touched.tpa && formik.errors.tpa)?formik.errors.tpa:''}</span>
                              <div className="from-group col-md-6">
                                  <label for="refrence">Reference</label>
                                  <input type="text"   className="form-control" onChange={(e)=>formik.setFieldValue('reference',e.target.value)}/>
                              </div>
+                             <span className='text-danger'>{(formik.touched.reference && formik.errors.reference)?formik.errors.reference:''}</span>
                              <div className="from-group col-md-12">
                                  <label for="doctor">Consultant Doctor</label>
                                  <select id="input "  className="form-control" onChange={(e)=>formik.setFieldValue('consDoctor',e.target.value)}>
@@ -139,14 +167,17 @@ export default () =>{
                                      <option>Dr.Amit</option>
                                      </select>
                              </div>
+                             <span className='text-danger'>{(formik.touched.consDoctor && formik.errors.consDoctor)?formik.errors.consDoctor:''}</span>
                              <div className="form-group col-md-6">
                                  <label for="stdcharge">Standard Charge ($)</label>
                                  <input type="number"  className="form-control" onChange={(e)=>formik.setFieldValue('standardCharge',e.target.value)}/>
                              </div>
+                             <span className='text-danger'>{(formik.touched.standardCharge && formik.errors.standardCharge)?formik.errors.standardCharge:''}</span>
                              <div className="form-group col-md-6">
                                  <label for="stdcharge">Applied Charge ($)</label>
                                  <input type="number"   className="form-control" onChange={(e)=>formik.setFieldValue('appliedCharge',e.target.value)}/>
                              </div>
+                             <span className='text-danger'>{(formik.touched.appliedCharge && formik.errors.appliedCharge)?formik.errors.appliedCharge:''}</span>
                              <div className="from-group col-md-12">
                                  <label for="doctor">Payment Mode</label>
                                  <select id="input "   className="form-control" onChange={(e)=>formik.setFieldValue('paymentMode',e.target.value)}>
@@ -156,7 +187,7 @@ export default () =>{
                                      <option>Other</option>
                                      </select>
                                       </div>
-                             
+                                      <span className='text-danger'>{(formik.touched.paymentMode && formik.errors.paymentMode)?formik.errors.paymentMode:''}</span>
                             </div> 
                             <div className="from-group col-md-12 m-4">
                             <button type="submit" class="col-md-6 btn btn-outline-primary form-control">Save & Print</button>

@@ -7,39 +7,40 @@ export default (prop)=>{
   //   window.$('#example').DataTable().clear().destroy();
   //  }
   let table=window.$(document).ready(function(){
-  window.$('#example').DataTable().destroy();
-  window.$('#example').empty();
-  window.$.fn.dataTable.ext.errMode='none';
+    window.$('#example').DataTable().destroy();
+    window.$('#example').empty();
+    window.$.fn.dataTable.ext.errMode='none';
   window.$(`#example`).DataTable( {
     data:prop.Datasrc,
-    columns:prop.col.map(name=>{return{data:name,title:name.toUpperCase()}}),
+    columns:prop.col.map(name=>{return{data:name,title:name.toUpperCase()
+    }}),
       
         
-     dom: '<"d-sm-flex flex-row justify-content-between border-primary m-0 p-0"<l><B><f>>t<"d-sm-flex justify-content-between align-items-center p-2"ip>',
+     dom: '<"d-sm-flex flex-row justify-content-between border-primary m-0 p-0"<l><"btn-group"B><f>>t<"d-sm-flex justify-content-between align-items-center p-2"ip>',
         buttons: [
             {
               extend:'copy',
               text:'COPY',
-              className:'btn btn-outline-primary py-0 btn-sm'
+              className:'btn btn-primary py-0 btn-sm'
             }, 
               {
               extend:'csv',
               text:'CSV',
-              className:'btn btn-outline-primary btn-sm py-0'
+              className:'btn btn-primary btn-sm py-0'
             },   {
               extend:'excel',
               text:'EXCEL',
-              className:'btn btn-outline-primary btn-sm py-0'
+              className:'btn btn-primary btn-sm py-0'
             }, 
               {
               extend:'pdf',
               text:'PDF',
-              className:'btn btn-outline-primary btn-sm py-0'
+              className:'btn btn-primary btn-sm py-0'
             }
             ,   {
               extend:'print',
               text:'PRINT',
-              className:'btn btn-outline-primary btn-sm py-0 '
+              className:'btn btn-primary btn-sm py-0 '
             }
         ],
      responsive: {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {useLocation,Route, NavLink} from 'react-router-dom';
 import Table from './Table'
-import {OPD} from './OPD'
+
 import axios from 'axios'
 import AddVisitor from '../../Forms/FrontOffice/AddVisitor'
 import CallLog from '../../Forms/FrontOffice/CallLog'
@@ -24,7 +24,10 @@ const PageContent = (props) => {
   const [Data,setData]=useState([]);
   useEffect(()=>
   {
-    axios.get('http://192.168.0.121:8080/'+props.url).
+    let myurl=window.localStorage.getItem('user');
+    myurl=myurl?`${props.url}/${JSON.parse(myurl).role}/${JSON.parse(myurl).userId}`:props.url
+//alert(myurl)
+    axios.get('http://192.168.0.121:8080/'+myurl).
     then(res=>{//console.log(res.data)
     setData(res.data)
     console.log(Data)
@@ -47,16 +50,9 @@ const PageContent = (props) => {
     {
     (props.sidebutton||[]).map((item,i)=>{return (item.type)?<NavLink to={'/dashboard/appointment/'+i} className={item.className } onClick={()=>{
       props.setBreadcrum(item.name)
-      window.localStorage.setItem('name',JSON.stringify(item.name))
   props.setcol(item.col)
-  
-  window.localStorage.setItem('col',JSON.stringify(item.col))
   props.seturl(item.url)
-  
-  window.localStorage.setItem('url',item.url)
   props.setsidebutton(item.sidebtn)
-  
-  window.localStorage.setItem('sidebtn',JSON.stringify(item.sidebtn))
     }}>{item.name}</NavLink>:<button className={item.className } data-toggle="modal" data-target={item.id}>{item.name}</button>})
     }
   </div>
