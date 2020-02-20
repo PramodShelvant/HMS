@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import {useLocation,Route,useHistory} from 'react-router-dom'
 import Sidebar from './sidebar/sidebar'
 import Navbar from './navbar/Navbar'
-import PageContent from './PageContent/PageContent'
+import AdminPageContent from './PageContent/AdminPageContent'
 import {Accountant} from '../Data/Accountant'
 import {Patient} from '../Data/Patient'
 import {Pharmacy} from '../Data/Pharmacy'
@@ -21,13 +21,12 @@ export default (prop) =>{
     const [breadcrum,setBreadcrum]=React.useState('Appointments');
     const [url,seturl]=React.useState(u);
     const [sidebutton,setsidebutton]=React.useState([]);
-    const [col,setcol]=React.useState(['Patient Name','Appointment No','Date','Phone','Gender','Doctor','Source','Status']);
+    const [col,setcol]=React.useState(['asdf','cvbnm']);
 const [myrole,setmyrole]=React.useState('receptionist');
     useEffect(()=>{
         let user=window.localStorage.getItem('user')
 if(window.localStorage.getItem('islogin') && window.localStorage.getItem('user')){
-  // let role=JSON.parse(user).role;
-  let role='receptionist'
+   let role='admin';
  setmyrole(role)
  let myd=data[role].find((item)=>item.url==u);
 // alert(JSON.stringify(myd))
@@ -37,7 +36,7 @@ if(window.localStorage.getItem('islogin') && window.localStorage.getItem('user')
  setcol(myd.col)
  }
  else{
-  //history.push('/')
+  history.push('/')
  }
 
     },[myrole])
@@ -56,7 +55,7 @@ if(window.localStorage.getItem('islogin') && window.localStorage.getItem('user')
         <div className="wrapper">
 <Navbar />
 <Sidebar items={data[myrole]} setBreadcrum={setBreadcrum} seturl={seturl} setcol={setcol} setsidebutton={setsidebutton}/>
-<PageContent breadcrum={breadcrum} setBreadcrum={setBreadcrum} url={url} col={col} sidebutton={sidebutton}  setcol={setcol} seturl={seturl} setsidebutton={setsidebutton}/>
+<AdminPageContent breadcrum={breadcrum} setBreadcrum={setBreadcrum} url={url} col={col} sidebutton={sidebutton}  setcol={setcol} seturl={seturl} setsidebutton={setsidebutton}/>
 </div>
     )
 }

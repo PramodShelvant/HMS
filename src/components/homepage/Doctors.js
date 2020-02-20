@@ -35,20 +35,20 @@ const doctor=[
     Profileimg:'https://www.medlife.com/doctors-enrollment/images/online-doctor-consultation-3x.png'
   },
   {
-    name:'DR.Jhony Sin',
-    email:'JhonySin@sunny.com',
+    name:'DR.Sateesh',
+    email:'Satesh@gmail.com',
     mobno:'9998887775',
     specialization:'Radiology',
     specializationimg:'https://www.bcmch.org/uploads/photo/radiology-img.jpg',
-    Profileimg:'https://assets.change.org/photos/4/km/cc/wKkmCCyqrpZVCZn-800x450-noPad.jpg?1542071468'
+    Profileimg:'https://assets.change.org/photos/4/km/cc/wKkmCCyqrpZVCZn.jpg?154207146856789'
   },
   {
-    name:'DR.Sunny',
-    email:'Sunny@gmail.com',
+    name:'DR.Suresh',
+    email:'Suresh@gmail.com',
     mobno:'923456787',
     specialization:'Nueclear Medicine',
     specializationimg:'http://clinicahaya.com.br/wp-content/uploads/2017/03/%C3%81tomo-3-555x510.jpg',
-    Profileimg:'https://www.newsone.tv/wp-content/uploads/2016/10/Sunny.jpg'
+    Profileimg:'https://www.newsone.tv/wp-content/uploads/2016/10/ram.jpg'
   }
 ]
 export default () =>
@@ -61,11 +61,11 @@ export default () =>
    <div className="col-sm-12 col-md-6 col-lg-4  pb-5" >
        <div className="card border-0  " style={{maxWidth:18+'rem'}}>
          <div className="card-body text-center ">
-           <img src={item.Profileimg} className="img-thumbnail mb-2" style={{height:6.25+'rem',width:6.25+'rem',borderRadius:50+'%'}} alt='no img'/>
+           <img src={item.Profileimg} className="img-thumbnail mb-2" style={{height:6.25+'rem',width:6.25+'rem',borderRadius:50+'%'}}onError={(event)=>event.target.setAttribute("src","white.png")}/>
             <div className="h5 text-danger mb-1" style={{fontSize:1.5+'rem'}}>{item.name}</div>
-            <span className="d-block mb-1 " style={{fontSize:1.25+'rem'}}>{item.email}</span>
-            <span className="d-block mb-1 " style={{fontSize:1+'rem'}}>{item.mobno}</span>
-            <div className="p-2 bg-primary mt-3 text-white font-weight-bold" ><img className="img-fluid mr-2" src={item.specializationimg} style={{height:30+'px',width:30+'px',borderRadius:50+'%'}} alt='no img'/>{item.specialization}</div>
+            <span className="d-block mb-1 text-md" style={{fontSize:1.25+'rem'}}>{item.email}</span>
+            <span className="d-block mb-1 text-sm" style={{fontSize:1+'rem'}}>{item.mobno}</span>
+            <div className="p-2 bg-primary mt-3 text-white font-weight-bold" ><img className="img-fluid mr-2" src={item.specializationimg} style={{height:30+'px',width:30+'px',borderRadius:50+'%'}} onError={(event)=>event.target.setAttribute("src","white.png")}/>{item.specialization}</div>
          </div>  
        </div>
     </div>

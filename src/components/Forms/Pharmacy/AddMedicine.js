@@ -57,6 +57,7 @@ export default ()=>{
                 <div className="form-group  ">
                  <label for="ExampleInputMedicineName">Medicine Name</label>
                  <input type="text" name="" className="form-control" onChange={(e)=>formik.setFieldValue('medicineName',e.target.value)} />
+                 <span class="text-danger">{formik.touched.medicineName?formik.errors.medicineName:''}</span>
                 </div>
                 <div className="form-group">
                  <label for="ExampleInputMedicineName">Medicine Category</label><small className="req ml-2 text-danger">*</small>
@@ -76,77 +77,94 @@ export default ()=>{
                      <option>Diaper</option>
                      <option>Tablets</option>
                  </select>
-                 </div>
                  <span class="text-danger">{formik.touched.medicineCategory?formik.errors.medicineCategory:''}</span>
+                 </div>
+                 
                  <div className="form-group">
                  <label for="ExampleInputMedicineName">Medicine Company</label>
                  <input type="text" className="form-control" onChange={(e)=>formik.setFieldValue('medicineCompany',e.target.value)} />
+                 <span class="text-danger">{formik.touched.medicineCompany?formik.errors.medicineCompany:''}</span>
                 </div>
-                <span class="text-danger">{formik.touched.medicineCompany?formik.errors.medicineCompany:''}</span>
+                
                 <div className="form-group">
                  <label for="ExampleInputMedicineName">Medicine Composition</label>
                  <input type="text" name="" className="form-control" onChange={(e)=>formik.setFieldValue('medicineComposition',e.target.value)} />
+                 <span class="text-danger">{formik.touched.medicineComposition?formik.errors.medicineComposition:''}</span>
                 </div>
-                <span class="text-danger">{formik.touched.medicineComposition?formik.errors.medicineComposition:''}</span>
+                
              </div>
              <div className="d-flex justify-content-between  border bg-light m-2 p-2">
                 <div className="form-group">
                  <label for="ExampleInputMedicineName">Medicine Group</label><small className="req ml-2 text-danger">*</small>
                  <input type="text" name="" className="form-control" onChange={(e)=>formik.setFieldValue('medicineGroup',e.target.value)} />
-                 </div>
                  <span class="text-danger">{formik.touched.medicineGroup?formik.errors.medicineGroup:''}</span>
+                 </div>
+                 
                  <div className="form-group">
                  <label for="ExampleInputMedicineName">Unit</label>
                  <input type="text" className="form-control" onChange={(e)=>formik.setFieldValue('unit',e.target.value)} />
+                 <span class="text-danger">{formik.touched.unit?formik.errors.unit:''}</span>
                 </div>
-                <span class="text-danger">{formik.touched.unit?formik.errors.unit:''}</span>
+                
                 <div className="form-group">
                  <label for="ExampleInputMedicineName">Min Level</label>
-                 <input type="text" name="" className="form-control" onChange={(e)=>formik.setFieldValue('minLevel',e.target.value)} />
+                 <input type="text" name="" className="form-control" onChange={(e)=>formik.setFieldValue('minLevel',e.target.value)}/>
+                 <span class="text-danger">{formik.touched.minLevel?formik.errors.minLevel:''}</span>
                 </div>
-                <span class="text-danger">{formik.touched.minLevel?formik.errors.minLevel:''}</span>
+                
                 <div className="form-group">
                  <label for="ExampleInputMedicineName">Re-Order Level</label><small className="req ml-2 text-danger">*</small>
                  <input type="text" name="" className="form-control" onChange={(e)=>formik.setFieldValue('reOrderLevel',e.target.value)} />
-                 </div>
                  <span class="text-danger">{formik.touched.reOrderLevel?formik.errors.reOrderLevel:''}</span>
+                 </div>
+                 
              </div>
              <div className="d-flex justify-content-between  border bg-light m-2 p-2">
                <div className="form-group">
                  <label for="ExampleInputMedicineName">Vat (%)</label>
                  <input type="text" className="form-control"  onChange={(e)=>formik.setFieldValue('vat',e.target.value)}/>
+                 <span class="text-danger">{formik.touched.vat?formik.errors.vat:''}</span>
                 </div>
-                <span class="text-danger">{formik.touched.vat?formik.errors.vat:''}</span>
+                
                 <div className="form-group">
                  <label for="ExampleInputMedicineName">Unit / Packing</label>
                  <input type="text" name="" className="form-control" onChange={(e)=>formik.setFieldValue('packing',e.target.value)}/>
+                 <span class="text-danger">{formik.touched.packing?formik.errors.packing:''}</span>
                 </div>
-                <span class="text-danger">{formik.touched.packing?formik.errors.packing:''}</span>
+                
                 <div className="form-group ml-4">
                  <label for="ExampleInputMedicineName">Vat A/C</label><small className="req ml-2 text-danger">*</small>
                      <input type="text" name="" className="form-control " onChange={(e)=>formik.setFieldValue('vatAc',e.target.value)}/>
+                     <span class="text-danger">{formik.touched.vatAc?formik.errors.vatAc:''}</span>
                  </div>
-                 <span class="text-danger">{formik.touched.vatAc?formik.errors.vatAc:''}</span>
+                 
                  <div className="form-group ml-4">
                  <label for="ExampleInputMedicineName">Medicine Photo</label>
                  <div>
-                 <input type="file" className=" " placeholder="( JPG | JPEG | PNG )" onChange={(e)=>formik.setFieldValue('medicinePhoto',e.target.files[0])}/></div>
+                 <input type="file" className=" " placeholder="( JPG | JPEG | PNG )" onChange={(e)=>formik.setFieldValue('medicinePhoto',e.target.files[0])}/>
+                 <span class="text-danger">{formik.touched.medicinePhoto?formik.errors.medicinePhoto:''}</span>
+                 </div>
                 </div>
-                <span class="text-danger">{formik.touched.medicinePhoto?formik.errors.medicinePhoto:''}</span>
+                
              </div>
              <div className="d-flex justify-content-between">
                
                 
                  
              </div>
-             <div className="d-flex dodda beku border bg-light m-2 p-2">
+             <div className="d-flex dodda beku border bg-light m-2 p-4 ">
 
-             <div className="flex-grow-1">
+             <div className="col-md-12">
                  <label for="note">Note</label>
-                 <textarea className="form-control" rows="2" onChange={(e)=>formik.setFieldValue('note',e.target.value)}></textarea>
+                 <textarea className="form-control" rows="3" onChange={(e)=>formik.setFieldValue('note',e.target.value)}></textarea>
+                 <span class="text-danger">{formik.touched.note?formik.errors.note:''}</span>
              </div>
-             <span class="text-danger">{formik.touched.note?formik.errors.note:''}</span>
-             <button type="submit" className="btn btn-sm  bg-primary">Save</button></div></form>
+            
+             </div>
+             <div className="d-flex float-right">
+             <button type="submit" className="btn btn-sm  bg-primary ">Save</button>
+             </div>
+             </form>
           </div>
           
         </div>

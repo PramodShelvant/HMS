@@ -2,25 +2,29 @@ import React from 'react'
 import {useFormik} from 'formik';
 import {Getdata,Postdata,PostFormdata} from '../../../src/Network/Server'
 
-export default () =>{
+export default (props) =>{
     const formik = useFormik({
         initialValues:{
-            name:'',
-            role:'',
-            mobileNo:'',
-            email:'',
-            password:'',
-            confirmPassword:'',
+            name:props.name||'',
+            role:props.role||'',
+            mobileNo:props.mobileNo||'',
+            email:props.email||'',
+            userId:props.userId||'',
+            password:props.password||'',
+            confirmPassword:props.confirmPassword||'',
             
         },
         onSubmit:values=>{alert(JSON.stringify(values,null,2))
-          Postdata('register/','POST',values).then(data=>console.log(data))}
+          Postdata('register','POST',values).then(data=>console.log(data))}
       })
     return(
-      
+     
+    <div class="modal fade" id="addRegistration" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+     <div class="modal-content" role="document"> 
 
-<div className="card w-25 mx-5 ">
-   <div class="card-header text-white bg-success "> Registration 
+<div className="card">
+   <div class="card-header text-white bg-primary "> Registration 
    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button> 
@@ -53,7 +57,7 @@ export default () =>{
   </div>
   
    <div className="d-flex  m-2 ">
- <button type="submit" class="btn btn-success btn-sm form-control  my-2">Save</button>
+ <button type="submit" class="btn btn-primary btn-sm form-control  my-2">Save</button>
  
  </div>
  </form>
@@ -61,6 +65,8 @@ export default () =>{
 
 </div>
 </div>
-
+</div>
+</div>
+</div>
     )
 }

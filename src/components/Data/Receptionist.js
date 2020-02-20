@@ -135,7 +135,7 @@ export const Receptionist=[
         id:'#Medicines',
         name:'Medicine Stock',
         type:"Link",
-        url:'medician',
+        url:'medician1',
         col:['medicineName','medicineCategory','medicineCompany','medicineComposition','medicineGroup','unit','minLevel','reOrderLevel','vat','packing','note','vatAc','MedicinePhoto'],
          sidebtn:[
           {

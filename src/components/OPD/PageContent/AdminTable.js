@@ -1,11 +1,9 @@
 import React,{useEffect} from 'react'
 import ReactDOM from 'react-dom'
 export default (prop)=>{
-  console.log(prop.Datasrc);
+  console.log(prop.col);
  useEffect(()=>{ 
-  //  if(window.$.fn.DataTable.isDataTable("#example")){
-  //   window.$('#example').DataTable().clear().destroy();
-  //  }
+ 
   let table=window.$(document).ready(function(){
     window.$('#example').DataTable().destroy();
     window.$('#example').empty();
@@ -15,7 +13,22 @@ export default (prop)=>{
     data:prop.Datasrc,
     columns:prop.col.map(name=>{return{data:name,title:name.toUpperCase()
     }}),
-    
+    columnDefs: [{
+      responsivePriority:2,
+      targets: -1,
+      createdCell: function (td, cellData, rowData, row, col) {
+        
+        ReactDOM.render(<>
+          <button className='btn btn-warning' data-toggle='modal' data-target='#bookappointment'
+            onClick={() => prop.setIndex(rowData)}>
+            edit
+          </button><button className='btn btn-danger'
+            onClick={() => alert(JSON.stringify(rowData))}>
+            delete
+          </button></>, td)
+        
+      }
+    } ],
      dom: '<"d-sm-flex flex-row justify-content-between border-primary m-0 p-0"<l><"btn-group"B><f>>t<"d-sm-flex justify-content-between align-items-center p-2"ip>',
         buttons: [
             {

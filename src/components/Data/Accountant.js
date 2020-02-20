@@ -58,6 +58,7 @@ const Accountant=[
        col:['medicineName','medicineCategory','medicineCompany','medicineComposition','medicineGroup','unit','minLevel','reOrderLevel','vat','packing','note','vatAc','MedicinePhoto'],
         sidebtn:[
           {
+            
             className:'btn btn-light ml-1 btn-sm',
             id:'#Medicines',
             name:'Medicine',

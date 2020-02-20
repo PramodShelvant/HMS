@@ -42,7 +42,7 @@ export default ()=>{
             </div>
             <div class="card-body ">
             <form onSubmit={formik.handleSubmit}>
-                <div className="d-flex justify-content-between">
+                <div className="d-flex justify-content-between border bg-light p-2">
                   <div className="form-group">
                     <div>Test Name <small className="req text-danger">*</small>
                       <input type="text"className="form-control" onChange={(e)=>formik.setFieldValue('testName',e.target.value)}/>
@@ -76,7 +76,7 @@ export default ()=>{
                         <span class="text-danger">{formik.touched.categoryName?formik.errors.categoryName:''}</span>
                         </div>
                  </div>
-                 <div className="d-flex justify-content-between">
+                 <div className="d-flex justify-content-between border p-2 bg-light mt-4">
                     
                     <div className="form-group">
                         <div>Sub Category <small className="req text-danger">*</small>
@@ -123,7 +123,7 @@ export default ()=>{
                     </div>   
              </div>
              <div className="d-flex float-right">
-             <button type="submit"className="form-control bg-primary">Save</button>
+             <button type="submit"className="form-control bg-primary mt-4">Save</button>
             </div>
             </form>
             </div>

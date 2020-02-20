@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {useLocation,Route, NavLink} from 'react-router-dom';
-import Table from './Table'
+import AdminTable from './AdminTable'
 
 import axios from 'axios'
 import AddVisitor from '../../Forms/FrontOffice/AddVisitor'
@@ -19,9 +19,12 @@ import Radiology from '../../Forms/Radiology/Radiology'
 import AddPatient from '../../Forms/OperatioTheatre/AddPatient'
 import AddNewPatient from '../../Forms/NewPatient'
 import BookMyAppointment from '../../homepage/BookMyAppointment'
+import Registration from '../../Forms/Registration'
 
-const PageContent = (props) => {
+const AdminPageContent = (props) => {
   const [Data,setData]=useState([]);
+  const [index,setIndex]=useState({});
+  console.log(index)
   useEffect(()=>
   {
     let myurl=window.localStorage.getItem('user');
@@ -62,13 +65,13 @@ const PageContent = (props) => {
   </ol>
   </nav>{
   props.col?
-     <div className='px-5 pb-5'><Table Datasrc={Data} col={props.col} url={props.url}/></div> :''
+     <div className='px-5 pb-5'><AdminTable Datasrc={Data} col={props.col} url={props.url} setIndex={setIndex}/></div> :''
     
     }
     </div>
     </section>
 
-    <BookMyAppointment />
+    <BookMyAppointment data={index} {...index}/>
     <AddPat />
     <Radiology /> 
     <Pathology /> 
@@ -84,8 +87,9 @@ const PageContent = (props) => {
     <AddVisitor />
     <ImportMedicine />
     <AddNewPatient/>
+    <Registration data={index}/>
     </div>
   );
 }
 
-export default PageContent;
+export default AdminPageContent;

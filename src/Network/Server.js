@@ -9,11 +9,11 @@ const Getdata=async(url='')=>{
     
     const Postdata=async(url = '', method='POST',data = {})=> {
       console.log(data)
-      const response = await fetch('http://192.168.0.121:8080/'+url, {
+      const response = await fetch('http://hospitalmanagemapp.gbfpue2n5p.us-east-1.elasticbeanstalk.com/'+url, {
         method:method,
         headers: {
           'Content-Type': 'application/json',
-          'access-control-allow-origin':'*'
+          'Access-Control-Allow-Origin':'*'
         },
         body: JSON.stringify(data)
       });
@@ -24,10 +24,10 @@ const Getdata=async(url='')=>{
       var formData = new FormData();
       Object.keys(data).map(item=>formData.append(item,data[item]));
      
-      const response = await fetch('http://192.168.0.121:8080/'+url, {
+      const response = await fetch('http://hospitalmanagemapp.gbfpue2n5p.us-east-1.elasticbeanstalk.com/'+url, {
         method:method,
         headers: {
-          'access-control-allow-origin':'*'
+         // 'access-control-allow-origin':'*'
         },
         body: formData
       });

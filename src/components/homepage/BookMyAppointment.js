@@ -1,31 +1,43 @@
-import React,{useState} from 'react';
-import {useFormik} from 'formik';
+import React,{useState,useEffect} from 'react';
+import {useFormik, yupToFormErrors} from 'formik';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {Getdata,Postdata} from '../../Network/Server'
+import * as yup from 'yup'
 
-
-export default ()=>
+export default (props)=>
 {
+  //console.log(props.patientId)
   const [pid,setPid]=useState(false);
+  const [p,setp]=useState(props.patientId);
+  const p1=props.patientId
+  console.log(props.data.patientId)
   const formik=useFormik({
+    //enableReinitialize:true,
     initialValues:{
-      patientId:'',
-      date:new Date(),
-      patientName:'',
-      gender:'',
-      email:'',
-      mobileNumber:'',
-      message:'',
-      department:'',
-      doctor:'',
-
+      ...props.data
     },
     onSubmit:values=>{alert(JSON.stringify(values,null,2))
     Postdata('appointment/','POST',values).then(data=>console.log(data))
-    }
+    },
+    validationSchema:()=>yup.object().shape({
+      date:yup.date().required(),
+      patientName:yup.string().required(),
+      gender:yup.string().required(),
+      email:yup.string().email().required(),
+      mobileNumber:yup.string().required().matches(/^[0-9]{10,10}$/,'must be 10 digit and number'),
+      message:yup.string().required(),
+      department:yup.string().required(),
+      doctor:yup.string().required(),
+    })
 
 
+  })
+  useEffect(() => {
+    console.log(p)
+    return () => {
+      //cleanup
+    };
   })
 return(<React.Fragment>
 <div className="modal fade "  id="bookappointment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -50,11 +62,12 @@ return(<React.Fragment>
   </div>
   <form onSubmit={formik.handleSubmit}>
    <div className="input-group mb-3 " style={pid?{display:'flex'}:{display:'none'}}>
-  <input type="text" className="form-control bg-transparent border-right-0 border-top-0" name="patientId" {...formik.getFieldProps('patientId')} placeholder="Petient Id" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+  <input type="text" className="form-control bg-transparent border-right-0 border-top-0" name="patientId"  {...formik.getFieldProps('patientId')} placeholder="Petient Id" aria-label="Recipient's username" aria-describedby="basic-addon2" value={props.patientId}/>
   <div className="input-group-append ">
     <span className="input-group-text bg-transparent border-right-0 border-top-0 border-left-0 " id="basic-addon2"><i className="fa fa-user " aria-hidden="true"></i></span>
   </div>
 </div>
+<span className='text-danger'>{formik.errors.patientId}</span> 
 <div className="input-group mb-3">
   <input type="text" className="form-control bg-transparent border-right-0 border-top-0" name="patientName" {...formik.getFieldProps('patientName')}placeholder="Petient Name" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
   <div className="input-group-append ">
@@ -62,6 +75,7 @@ return(<React.Fragment>
   </div>
 </div>
 
+<span className='text-danger'>{formik.errors.patientName}</span> 
    <div className="input-group mb-3">
      <div className="input-group-prepend ">
     <span className="input-group-text bg-transparent  border-top-0" id="basic-addon1">+91</span>
@@ -70,22 +84,30 @@ return(<React.Fragment>
    <div className="input-group-append ">
     <span className="input-group-text bg-transparent border-right-0 border-top-0 border-left-0 " id="basic-addon2"><i className="fa fa-mobile" aria-hidden="true"></i></span>
   </div>
+  
    </div>
 
+   <span className='text-danger'>{formik.errors.mobileNumber}</span> 
   <div className="input-group mb-3">
   <input type="text" className="form-control bg-transparent border-right-0 border-top-0" name="email" {...formik.getFieldProps('email')} placeholder="Email" aria-label="Recipient's username" aria-describedby="basic-addon2" />
   
   <div className="input-group-append ">
     <span className="input-group-text bg-transparent border-right-0 border-top-0 border-left-0 " id="basic-addon2"><i className="fas fa-envelope-square" aria-hidden="true"></i></span>
   </div>
+ 
   </div>
+  
+  <span className='text-danger'>{formik.errors.email}</span> 
   <div className="input-group mb-3">
   <select className="form-control bg-transparent border-right-0 border-top-0 " name="gender" {...formik.getFieldProps('gender')}placeholder="Gender" aria-label="Recipient's username" aria-describedby="basic-addon2">
     <option className="">Gender</option>
     <option className="">Male</option>
     <option className="">Female</option>
   </select>
+  
   </div>
+  
+  <span className='text-danger'>{formik.errors.gender}</span> 
   <div className="input-group mb-3">
   <select className="form-control bg-transparent border-right-0 border-top-0" name="department" {...formik.getFieldProps('department')} placeholder="Department" aria-label="Recipient's username" aria-describedby="basic-addon2">
   <option selected> Select Department</option>
@@ -93,15 +115,22 @@ return(<React.Fragment>
     <option className="">radiology</option>
     
   </select>
+  
   </div>
+  
+  <span className='text-danger d-block'>{formik.errors.department}</span> 
   <DatePicker selected={formik.values.date} name='date' onChange={(e)=>formik.setFieldValue('date',e)}  className="form-control bg-transparent border-right-0 border-top-0 " />
   
+  <span className='text-danger'>{formik.errors.date}</span> 
   <div className="input-group mb-3">
   <textarea className="form-control bg-transparent border-right-0 border-top-0 mt-3" name="message" {...formik.getFieldProps('message')}  rows="4" placeholder="Problem" >
     Problem
   </textarea>
+  
 </div>
-   <button type="submit" className="btn btn-success btn-sm btn-center">Submit</button>
+
+<span className='text-danger'>{formik.errors.message}</span> 
+   <button type="submit" className="btn btn-success btn-sm btn-center form-control">Submit</button>
    
 </form>
       </div>

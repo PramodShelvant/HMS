@@ -50,8 +50,10 @@ return(
     </div>
   <div className="card-body">     
   <form onSubmit={formik.handleSubmit}> 
-  <div class="form-row">
-    <div class="form-group col-md-6">
+
+  <div className="border bg-light">
+  <div class="form-row p-2">
+    <div class="form-group col-md-6 ">
       <label for="inputEmail4">Purpose</label>
       <select id="input" class="form-control" name='purpose' {...formik.getFieldProps('purpose')}>
         <option selected>Choose</option>
@@ -59,37 +61,45 @@ return(
         <option>Enquiry</option>
         <option>Seminar</option>
       </select>
+      <span className='text-danger'>{(formik.touched.purpose && formik.errors.purpose)?formik.errors.purpose:''}</span>
     </div>
     
-    <span className='text-danger'>{(formik.touched.purpose && formik.errors.purpose)?formik.errors.purpose:''}</span>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Name</label>
       <input type="text" class="form-control" id="inputPassword4" name='name' {...formik.getFieldProps('name')}/>
+      <span className='text-danger'>{(formik.touched.name && formik.errors.name)?formik.errors.name:''}</span>
     </div>
     
-    <span className='text-danger'>{(formik.touched.name && formik.errors.name)?formik.errors.name:''}</span>
+   </div>
   </div>
-  <div class="form-row">
+
+  <div className="border bg-light mt-2">
+  <div class="form-row p-2">
+
     <div class="form-group col-md-6">
       <label for="inputAddress">Phone</label>
       <input type="number" class="form-control" id="inputAddress" placeholder="Mobile Number" name='phone' {...formik.getFieldProps('phone')}/>
+      <span className='text-danger'>{(formik.touched.phone && formik.errors.phone)?formik.errors.phone:''}</span>
     </div>
     
-    <span className='text-danger'>{(formik.touched.phone && formik.errors.phone)?formik.errors.phone:''}</span>
     <div class="form-group col-md-6">
       <label for="inputAddress2">ID Card</label>
       <input type="text" class="form-control" id="inputAddress2" placeholder="Name of Id Card" name='idCard' {...formik.getFieldProps('idCard')}/>
+      <span className='text-danger'>{(formik.touched.idCard && formik.errors.idCard)?formik.errors.idCard:''}</span>
     </div>
     
-    <span className='text-danger'>{(formik.touched.idCard && formik.errors.idCard)?formik.errors.idCard:''}</span>
+    </div>
   </div>
-  <div class="form-row">
+
+  <div className="border bg-light mt-2">
+  <div class="form-row p-2">
     <div class="form-group col-md-6">
       <label for="inputCity">Number Of Person</label>
       <input type="text" class="form-control" id="inputCity" name='numberOfPersons' {...formik.getFieldProps('numberOfPersons')}/>
+      <span className='text-danger'>{(formik.touched.numberOfPersons && formik.errors.numberOfPersons)?formik.errors.numberOfPersons:''}</span>
     </div>
     
-    <span className='text-danger'>{(formik.touched.numberOfPersons && formik.errors.numberOfPersons)?formik.errors.numberOfPersons:''}</span>
+    
     <div class="form-group col-md-6">
       <label for="inputState">Date</label>
       <div className="w-100 ">
@@ -99,38 +109,44 @@ return(
       <span className='text-danger'>{(formik.touched.date && formik.errors.date)?formik.errors.date:''}</span>
     </div>
   </div>
-  <div class="form-row">
+  </div>
+
+  <div className="border bg-light mt-2">
+  <div class="form-row p-2">
     <div class="form-group col-md-6">
       <label for="inputCity">In Time</label>
       <input type="text" class="form-control" id="inputCity" name='inTime' {...formik.getFieldProps('inTime')}/>
+      <span className='text-danger'>{(formik.touched.inTime && formik.errors.inTime)?formik.errors.inTime:''}</span>
     </div>
     
-    <span className='text-danger'>{(formik.touched.inTime && formik.errors.inTime)?formik.errors.inTime:''}</span>
+    
     <div class="form-group col-md-6">
       <label for="inputCity">Out Time</label>
       <input type="text" class="form-control" id="inputCity" name='outTime' {...formik.getFieldProps('outTime')}/>
+      <span className='text-danger'>{(formik.touched.outTime && formik.errors.outTime)?formik.errors.outTime:''}</span>
     </div>
     
-    <span className='text-danger'>{(formik.touched.outTime && formik.errors.outTime)?formik.errors.outTime:''}</span>
-  </div>
-  <div className="form-row">
-  <div className="form-group mb-2 col-md-6">
-  <label for="inputCity">Note</label>
-    <textarea className="form-control bg-transparent" rows="2" placeholder="Note" name='note' {...formik.getFieldProps('note')}>
-    </textarea>
-  </div>
-  
-  <span className='text-danger'>{(formik.touched.note && formik.errors.note)?formik.errors.note:''}</span>
-  <div class="form-group col-md-6  ">
-      <label for="inputCity">Attach Document</label>
-      <input type="file" class="custom-file " id="inputCity" onChange={(e)=>formik.setFieldValue('attachedDocument',e.target.files[0])}/>
     </div>
-    
-    <span className='text-danger'>{(formik.touched.attachedDocument && formik.errors.attachedDocument)?formik.errors.attachedDocument:''}</span>
     </div>
 
+  <div className="border bg-light mt-2">
+   <div className="form-row p-2">
+     <div className="form-group mb-2 col-md-6">
+       <label for="inputCity">Note</label>
+       <textarea className="form-control" rows="2" placeholder="" name='note' {...formik.getFieldProps('note')}>
+       </textarea>
+       <span className='text-danger'>{(formik.touched.note && formik.errors.note)?formik.errors.note:''}</span>
+      </div>
+  
+      <div class="form-group col-md-6  ">
+        <label for="inputCity">Attach Document</label>
+        <input type="file" class="custom-file " id="inputCity" onChange={(e)=>formik.setFieldValue('attachedDocument',e.target.files[0])}/>
+      </div>
+      <span className='text-danger'>{(formik.touched.attachedDocument && formik.errors.attachedDocument)?formik.errors.attachedDocument:''}</span>
+    </div>
+    </div>
     
-   <div className="d-flex float-right">
+   <div className="d-flex float-right mt-3">
  <button type="submit" class="btn btn-primary form-control">Save</button>
  </div>
 </form>
