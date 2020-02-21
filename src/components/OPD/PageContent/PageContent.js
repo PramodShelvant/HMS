@@ -48,14 +48,14 @@ const PageContent = (props) => {
   <nav aria-label="breadcrumb" >
   <ol class="p-2 px-5" style={{backgroundColor:'#3f51b5'}} >
   <li class="text-white font-weight-bold d-sm-flex justify-content-between align-items-baseline" aria-current="page"><div style={{letterSpacing:'2px',lineHeight:'100%'}}>{props.breadcrum}</div>
-  <div>
+  <div className='btn-group'>
     {
-    (props.sidebutton||[]).map((item,i)=>{return (item.type)?<NavLink to={'/dashboard/appointment/'+i} className={item.className } onClick={()=>{
+    (props.sidebutton||[]).map((item,i)=>{return (item.type)?<NavLink to={'/dashboard/appointment/'+i} className={item.className+' text-primary m-0' } style={{marginLeft:'0.5px !important'}} onClick={()=>{
       props.setBreadcrum(item.name)
   props.setcol(item.col)
   props.seturl(item.url)
   props.setsidebutton(item.sidebtn)
-    }}>{item.name}</NavLink>:<button className={item.className } data-toggle="modal" data-target={item.id}>{item.name}</button>})
+    }}>{item.name}</NavLink>:<button className={item.className+' text-primary m-0' } style={{marginLeft:'0.5px !important'}} data-toggle="modal" data-target={item.id}>{item.name}</button>})
     }
   </div>
   </li>

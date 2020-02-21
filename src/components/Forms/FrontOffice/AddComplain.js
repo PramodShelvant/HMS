@@ -17,7 +17,6 @@ export default () =>{
             assigned:'',
             note:'',
             attachedDocument:null
-
         },
         onSubmit:values=>{alert(JSON.stringify(values,null,2))
             PostFormdata('complaintype/','POST',values).then(data=>console.log(data))},
@@ -65,7 +64,7 @@ return(
                 
                 <div className="form-group col-md-6">
                     <label for="source">Source</label>
-                    <select id="input" className="form-control" name='source' {...formik.getFieldProps('source')}>
+                    <select id="input" className="form-control" name='source' {...formik.getFieldProps('source')} value={formik.values.source}>
                         <option selected>Choose</option>
                         <option>Online Advertising</option>
                         <option>From Visitors</option>

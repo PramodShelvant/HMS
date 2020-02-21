@@ -6,21 +6,12 @@ export default (props) => {
   const location=useLocation();
   const u=location.pathname.toString().split('/')[1];
   const handle=(item)=>{
-   //alert(JSON.stringify(item.name))
     props.setBreadcrum(item.name)
-    
-   // window.localStorage.setItem('name',props.items.name)
-    
-    
+    props.setid(item.id)
     props.setcol(item.col)
-  //  window.localStorage.setItem('col',JSON.stringify(props.items.col))
     props.seturl(item.url)
-    
-  //  window.localStorage.setItem('url',props.items.url)
     props.setsidebutton(item.sidebtn)
   }
-    
-   // window.localStorage.setItem('sidebtn',JSON.stringify(props.items.sidebtn))
     React.useEffect(()=>{},[]);
    
   return (

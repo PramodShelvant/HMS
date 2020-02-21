@@ -13,17 +13,17 @@ export default (props)=>
   //const p1=props.patientId
  // console.log(props.data.patientId)
   const formik=useFormik({
-    //enableReinitialize:true,
+    enableReinitialize:true,
     initialValues:{
-      patientId:'',
+      patientId:props.patientId||'',
       date:'',
-      patientName:'',
-      gender:'',
-      email:'',
-      mobileNumber:'',
-      message:'',
-      department:'',
-      doctor:'',
+      patientName:props.patientName||'',
+      gender:props.gender||'',
+      email:props.email||'',
+      mobileNumber:props.mobileNumber||'',
+      message:props.message||'',
+      department:props.department||'',
+      doctor:props.doctor||'',
     },
     onSubmit:values=>{alert(JSON.stringify(values,null,2))
     Postdata('appointment/','POST',values).then(data=>console.log(data))
@@ -40,12 +40,6 @@ export default (props)=>
     })
 
 
-  })
-  useEffect(() => {
-   // console.log(p)
-    return () => {
-      //cleanup
-    };
   })
 return(<React.Fragment>
 <div className="modal fade "  id="bookappointment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

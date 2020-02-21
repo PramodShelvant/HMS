@@ -15,6 +15,7 @@ export default (props) => {
   //window.localStorage.setItem('name',props.items.name)
   if(typeof(props.items.submenu)==='undefined')
   {
+  props.setid(props.items.id);
   props.setcol(props.items.col)
   window.localStorage.setItem('col',JSON.stringify(props.items.col))
   props.seturl(props.items.url)} 
@@ -35,7 +36,7 @@ export default (props) => {
       </p>
     </NavLink>
     {(props.items.submenu)?
-    <Submenu items={props.items.submenu}  name={props.items.name} setsidebutton={props.setsidebutton} setBreadcrum={props.setBreadcrum} setcol={props.setcol} seturl={props.seturl} />:<></>}
+    <Submenu  {...props} name={props.items.name} items={props.items.submenu} />:<></>}
   </li>
   );
 }

@@ -8,7 +8,7 @@ const sidebaritem = (props) => {
       <Userprofile />
       <nav className="mt-2">
         <ul className="nav nav-pills nav-sidebar flex-column text-white" data-widget="treeview" role="menu" data-accordion="false">
-         {props.items.map((item)=><Sidebarnavitems items={item} setsidebutton={props.setsidebutton} setBreadcrum={props.setBreadcrum} setcol={props.setcol} seturl={props.seturl} />)}
+         {props.items.map((item)=><Sidebarnavitems {...props} items={item} />)}
         </ul>
       </nav>
     </div>

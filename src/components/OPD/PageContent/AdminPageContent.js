@@ -20,23 +20,20 @@ import AddPatient from '../../Forms/OperatioTheatre/AddPatient'
 import AddNewPatient from '../../Forms/NewPatient'
 import BookMyAppointment from '../../homepage/BookMyAppointment'
 import Registration from '../../Forms/Registration'
+import DisplayForm from '../../Forms/DisplayForm'
 
 const AdminPageContent = (props) => {
   const [Data,setData]=useState([]);
   const [index,setIndex]=useState({});
-  console.log(index)
+ 
   useEffect(()=>
   {
     let myurl=window.localStorage.getItem('user');
     myurl=myurl?`${props.url}/${JSON.parse(myurl).role}/${JSON.parse(myurl).userId}`:props.url
-//alert(myurl)
-  //  axios.get('http://192.168.0.121:8080/'+myurl).
+  
     axios.get('http://hospitalmanagemapp.gbfpue2n5p.us-east-1.elasticbeanstalk.com/'+myurl).
-
-    then(res=>{//console.log(res.data)
+    then(res=>{
     setData(res.data)
-    console.log(Data)
-    console.log(props.url)
   })
   },[props.url])
   return (
@@ -51,43 +48,44 @@ const AdminPageContent = (props) => {
   <nav aria-label="breadcrumb" >
   <ol class="p-2 px-5" style={{backgroundColor:'#3f51b5'}} >
   <li class="text-white font-weight-bold d-sm-flex justify-content-between align-items-baseline" aria-current="page"><div style={{letterSpacing:'2px',lineHeight:'100%'}}>{props.breadcrum}</div>
-  <div>
+  <div className='btn-group'>
     {
-    (props.sidebutton||[]).map((item,i)=>{return (item.type)?<NavLink to={'/dashboard/appointment/'+i} className={item.className } onClick={()=>{
+    (props.sidebutton||[]).map((item,i)=>{return (item.type)?<NavLink to={'/dashboard/appointment/'+i} className={item.className +'text-primary' } onClick={()=>{
       props.setBreadcrum(item.name)
   props.setcol(item.col)
   props.seturl(item.url)
   props.setsidebutton(item.sidebtn)
-    }}>{item.name}</NavLink>:<button className={item.className } data-toggle="modal" data-target={item.id}>{item.name}</button>})
+    }}>{item.name}</NavLink>:<button className={item.className+' text-primary' } data-toggle="modal" data-target={item.id}>{item.name}</button>})
     }
   </div>
   </li>
   </ol>
   </nav>{
   props.col?
-     <div className='px-5 pb-5'><AdminTable Datasrc={Data} col={props.col} url={props.url} setIndex={setIndex}/></div> :''
+     <div className='px-5 pb-5'><AdminTable Datasrc={Data} id={props.id} col={props.col} url={props.url} setIndex={setIndex}/></div> :''
     
     }
     </div>
     </section>
 
-    <BookMyAppointment data={index} {...index}/>
-    <AddPat />
-    <Radiology /> 
-    <Pathology /> 
-    <PurchaseMedicine />
-    <AddMedicine />
-    <GenerateBill/>
-    <IPDAddpat/>
-    <AddPatient />
-    <AddComplain />
-    <AddDispatch />
-    <AddReceive />
-    <CallLog />
-    <AddVisitor />
-    <ImportMedicine />
-    <AddNewPatient/>
+    <BookMyAppointment  {...index}/>
+    <AddPat  {...index}/>
+    <Radiology {...index}/> 
+    <Pathology {...index}/> 
+    <PurchaseMedicine {...index}/>
+    <AddMedicine {...index}/>
+    <GenerateBill {...index}/>
+    <IPDAddpat {...index}/>
+    <AddPatient {...index}/>
+    <AddComplain {...index}/>
+    <AddDispatch {...index}/>
+    <AddReceive {...index}/>
+    <CallLog {...index}/>
+    <AddVisitor {...index}/>
+    <ImportMedicine {...index}/>
+    <AddNewPatient {...index}/>
     <Registration data={index}/>
+    <DisplayForm data={index}/>
     </div>
   );
 }

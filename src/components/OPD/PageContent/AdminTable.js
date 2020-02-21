@@ -8,24 +8,30 @@ export default (prop)=>{
     window.$('#example').DataTable().destroy();
     window.$('#example').empty();
     window.$.fn.dataTable.ext.errMode='none';
-    
+   // console.log('sdfg'+prop.id)
   window.$(`#example`).DataTable( {
     data:prop.Datasrc,
-    columns:prop.col.map(name=>{return{data:name,title:name.toUpperCase()
-    }}),
+    columns:[...prop.col.map(name=>{return{data:name,title:name.toUpperCase()
+    }}),{data:'action',title:'ACTION'}],
     columnDefs: [{
+      orderable:false,
       responsivePriority:2,
       targets: -1,
       createdCell: function (td, cellData, rowData, row, col) {
         
-        ReactDOM.render(<>
-          <button className='btn btn-warning' data-toggle='modal' data-target='#bookappointment'
+        ReactDOM.render(<div class="btn-group" role="group" aria-label="Basic example">
+          <button className='btn btn-warning' data-toggle='modal' data-target={`${prop.id}`}
             onClick={() => prop.setIndex(rowData)}>
-            edit
+            <i className='fa fa-pencil'></i>
           </button><button className='btn btn-danger'
             onClick={() => alert(JSON.stringify(rowData))}>
-            delete
-          </button></>, td)
+            <i className='fa fa-trash'></i>
+          </button>
+          <button className='btn btn-primary' data-toggle='modal' data-target='#viewDetails'
+            onClick={() => prop.setIndex(rowData)}>
+            <i className='fa fa-eye'></i>
+          </button>
+          </div>, td)
         
       }
     } ],
@@ -56,25 +62,14 @@ export default (prop)=>{
               className:'btn btn-primary btn-sm py-0 '
             }
         ],
-     responsive: {
-           details: {
-              display:window.$.fn.dataTable.Responsive.display.modal( {
-                header: function ( row ) {
-                    var data = row.data();
-                    return 'Details for '+prop.url;
-                }
-            } ),
-             renderer: window.$.fn.dataTable.Responsive.renderer.tableAll( {
-                 tableClass: 'table'
-             } ),
-             
-            }
-        }
+     responsive:{
+       details:false
+     }
      
     
 
     } )});
-} 
+} ,[prop.Datasrc,prop.col]
  );
 
   return(

@@ -13,11 +13,7 @@ export default (prop) =>{
     const history=useHistory();
     const location=useLocation();
     const u=location.pathname.toString().split('/')[2];
-    // let name1=window.localStorage.getItem('name')
-    // let col1=window.localStorage.getItem('col')
-    // let url1=window.localStorage.getItem('url')
-    // let sidebtn1=window.localStorage.getItem('sidebtn')
-    
+    const [id,setid]=React.useState();
     const [breadcrum,setBreadcrum]=React.useState('Appointments');
     const [url,seturl]=React.useState(u);
     const [sidebutton,setsidebutton]=React.useState([]);
@@ -30,14 +26,14 @@ if(window.localStorage.getItem('islogin') && window.localStorage.getItem('user')
   let role='receptionist'
  setmyrole(role)
  let myd=data[role].find((item)=>item.url==u);
-// alert(JSON.stringify(myd))
+//alert(JSON.stringify(myd))
  setBreadcrum(myd['name']||'')
  seturl(u)
  setsidebutton(myd.sidebtn||[])
  setcol(myd.col)
  }
  else{
-  //history.push('/')
+  history.push('/')
  }
 
     },[myrole])
@@ -55,8 +51,8 @@ if(window.localStorage.getItem('islogin') && window.localStorage.getItem('user')
         
         <div className="wrapper">
 <Navbar />
-<Sidebar items={data[myrole]} setBreadcrum={setBreadcrum} seturl={seturl} setcol={setcol} setsidebutton={setsidebutton}/>
-<PageContent breadcrum={breadcrum} setBreadcrum={setBreadcrum} url={url} col={col} sidebutton={sidebutton}  setcol={setcol} seturl={seturl} setsidebutton={setsidebutton}/>
+<Sidebar items={data[myrole]} setid={setid} setBreadcrum={setBreadcrum} seturl={seturl} setcol={setcol} setsidebutton={setsidebutton}/>
+<PageContent breadcrum={breadcrum} setid={setid} setBreadcrum={setBreadcrum} url={url} col={col} sidebutton={sidebutton}  setcol={setcol} seturl={seturl} setsidebutton={setsidebutton}/>
 </div>
     )
 }
