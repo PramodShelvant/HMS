@@ -34,7 +34,7 @@ const AdminPageContent = (props) => {
     axios.get('http://hospitalmanagemapp.gbfpue2n5p.us-east-1.elasticbeanstalk.com/'+myurl).
     then(res=>{
     setData(res.data)
-  })
+  }).catch((err)=>{setData([]);console.log(err)})
   },[props.url])
   return (
     

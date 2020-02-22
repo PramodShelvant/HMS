@@ -22,8 +22,8 @@ const [myrole,setmyrole]=React.useState('receptionist');
     useEffect(()=>{
         let user=window.localStorage.getItem('user')
 if(window.localStorage.getItem('islogin') && window.localStorage.getItem('user')){
-  // let role=JSON.parse(user).role;
-  let role='receptionist'
+  let role=JSON.parse(user).role;
+  //let role='receptionist'
  setmyrole(role)
  let myd=data[role].find((item)=>item.url==u);
 //alert(JSON.stringify(myd))

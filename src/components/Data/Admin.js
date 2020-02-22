@@ -72,14 +72,6 @@ export const Admin=[
     url:'rediology',
     id:'#TestReport',
     col:['testName','shortName','testType','code','categoryName','subCategory','reportDays','chargeCategory','standardCharge'],
-    sidebtn:[
-      {
-        className:'btn btn-light ml-1 btn-sm',
-        id:'#TestReport',
-        name:'Test Report',
-       // type:'Link',
-        col:['testname','shortname','testtype','category','subcatagory','method','reportdays','charge']
-      }]
  
    }
 ];

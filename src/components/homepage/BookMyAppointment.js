@@ -12,10 +12,11 @@ export default (props)=>
  // const [p,setp]=useState(props.patientId);
   //const p1=props.patientId
  // console.log(props.data.patientId)
-  const formik=useFormik({
-    //enableReinitialize:true,
+ const patientid=window.localStorage.getItem('user')?JSON.parse(window.localStorage.getItem('user')).role=='patient'?JSON.parse(window.localStorage.getItem('user')).userId:'':''
+// alert(patientid) 
+ const formik=useFormik({
     initialValues:{
-      patientId:'',
+      patientId:patientid,
       date:'',
       patientName:'',
       gender:'',
@@ -26,7 +27,8 @@ export default (props)=>
       doctor:'',
     },
     onSubmit:values=>{alert(JSON.stringify(values,null,2))
-    Postdata('appointment/','POST',values).then(data=>console.log(data))
+   Postdata('appointment/','POST',values).then(data=>console.log(data))
+   formik.resetForm();
     },
     validationSchema:()=>yup.object().shape({
       date:yup.date().required(),
@@ -36,17 +38,12 @@ export default (props)=>
       mobileNumber:yup.string().required().matches(/^[0-9]{10,10}$/,'must be 10 digit and number'),
       message:yup.string().required(),
       department:yup.string().required(),
-      doctor:yup.string().required(),
+     // doctor:yup.string().required(),
     })
 
 
   })
-  useEffect(() => {
-   // console.log(p)
-    return () => {
-      //cleanup
-    };
-  })
+  
 return(<React.Fragment>
 <div className="modal fade "  id="bookappointment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div className="modal-dialog" role="document">
@@ -138,7 +135,7 @@ return(<React.Fragment>
 </div>
 
 <span className='text-danger'>{formik.errors.message}</span> 
-   <button type="submit" className="btn btn-success btn-sm btn-center form-control">Submit</button>
+   <button type="submit" onClick={formik.handleSubmit} className="btn btn-success btn-sm btn-center form-control">Submit</button>
    
 </form>
       </div>

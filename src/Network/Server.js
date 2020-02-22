@@ -8,7 +8,7 @@ const Getdata=async(url='')=>{
     }
     
     const Postdata=async(url = '', method='POST',data = {})=> {
-      console.log(data)
+      alert(JSON.stringify(data))
       const response = await fetch('http://hospitalmanagemapp.gbfpue2n5p.us-east-1.elasticbeanstalk.com/'+url, {
         method:method,
         headers: {
