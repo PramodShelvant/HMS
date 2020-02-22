@@ -3,7 +3,8 @@ export const Patient=[
       icon:'fa fa-user',
       name:'My Appointments',
       url:'appointment',
-      col:['appointmentNo','date','doctor','massage','appointmentStatus'],
+      col:['patientName','appointmentNo','date','mobileNumber','gender','doctorId','source','appointmentStatus'],
+      
       sidebtn:[
         {
           className:'btn btn-light ml-1 btn-sm',

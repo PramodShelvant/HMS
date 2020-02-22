@@ -24,7 +24,7 @@ export default (props)=>
       mobileNumber:'',
       message:'',
       department:'',
-      doctor:'',
+     // doctor:'',
     },
     onSubmit:values=>{alert(JSON.stringify(values,null,2))
    Postdata('appointment/','POST',values).then(data=>console.log(data))

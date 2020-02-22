@@ -23,7 +23,7 @@ export default (props)=>
       mobileNumber:props.mobileNumber||'',
       message:props.message||'',
       department:props.department||'',
-      doctor:props.doctor||'',
+      //doctor:props.doctor||'',
     },
     onSubmit:values=>{alert(JSON.stringify(values,null,2))
     Postdata('appointment/','POST',values).then(data=>console.log(data))
@@ -36,7 +36,7 @@ export default (props)=>
       mobileNumber:yup.string().required().matches(/^[0-9]{10,10}$/,'must be 10 digit and number'),
       message:yup.string().required(),
       department:yup.string().required(),
-      doctor:yup.string().required(),
+      //doctor:yup.string().required(),
     })
 
 
